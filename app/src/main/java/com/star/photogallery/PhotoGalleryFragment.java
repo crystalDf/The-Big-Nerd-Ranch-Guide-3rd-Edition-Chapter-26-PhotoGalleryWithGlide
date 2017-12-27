@@ -14,7 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.List;
 
@@ -117,9 +118,9 @@ public class PhotoGalleryFragment extends Fragment {
         }
 
         public void bindGalleryItem(GalleryItem item) {
-            Picasso.with(getActivity())
+            Glide.with(PhotoGalleryFragment.this)
                     .load(item.getUrl())
-                    .placeholder(R.drawable.emma)
+                    .apply(new RequestOptions().placeholder(R.drawable.emma))
                     .into(mItemImageView);
         }
     }
